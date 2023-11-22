@@ -1,0 +1,35 @@
+[gd_scene load_steps=6 format=3 uid="uid://daccj6nyj5v3j"]
+
+[ext_resource type="PackedScene" uid="uid://d37fwswd03xk5" path="res://bullet1.gltf" id="1_sv01r"]
+[ext_resource type="Material" uid="uid://dpe8k78jbuhdk" path="res://addons/simplegrasstextured/materials/grass.material" id="2_ukach"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_trfcd"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_owqx7"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_f1h6t"]
+
+[node name="CharacterBody3D" type="CharacterBody3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.56418, 0.962747, -0.084756)
+shape = SubResource("CapsuleShape3D_trfcd")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="CollisionShape3D"]
+mesh = SubResource("CapsuleMesh_owqx7")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.59593, 0.635394, 7.37361)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.02905, 0.768813, 3.44508)
+
+[node name="bullet1" parent="." instance=ExtResource("1_sv01r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0325, 0, -1.29236)
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="CollisionShape3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00453162, -0.00799274, 0.00193334)
+mesh = SubResource("PlaneMesh_f1h6t")
+surface_material_override/0 = ExtResource("2_ukach")
